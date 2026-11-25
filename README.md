@@ -2,6 +2,47 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.131-blue.svg)](https://doi.org/10.25663/brainlife.app.131)
 
 # app-plot3Dobjects
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Renders 3D surface meshes (.vtk), such as tract surfaces, as PNG images from six camera views with VTK; currently cannot run on any brainlife resource.**
+
+Visualisation utility: loads every .vtk surface in the input directory, colours known tract surfaces (or uses the input's color.json), and renders top, bottom, front, back and left/right sagittal views under a virtual display, writing PNGs and images.json. As the registry notes, main activates a local 'dipyenv' conda environment instead of a container, so the App must be updated to run via Singularity before it can be used.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/3Dsurfaces` |
+| 📤 **Outputs** | `generic/images` |
+| ⚙️ **Resources** | 8 CPUs · 0.33 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.131](https://doi.org/10.25663/brainlife.app.131) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `surfaces` | `neuro/3Dsurfaces` | yes | Directory of 3D surface meshes in .vtk format, optionally with a color.json giving a colour per surface name. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `images` | `generic/images` | PNG renderings of the surfaces from six views, with an images.json index. |
+
+<details>
+<summary><b>⚙️ Parameters</b> (1)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `remove_background` | boolean | `true` | transparent background on the images |
+
+</details>
+
+📚 **References used by this App:**
+- Kitchell L. Shape Analysis of Human White Matter Tracts: An Examination of Normal Morphological Variability and the Association Between Morphology, Brain Size, and Behavior. Indiana University (2020).
+- Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+
+<!-- brainlife-app:end -->
+
 This App allows you to plot 3D objects in .vtk format in four different views: axial, coronal, left, and right sagittal.
 
 ### Author
